@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView chatRV;
+    private RecyclerView chatsRV;
     private EditText userMsgEdt;
     private FloatingActionButton sendMsgFAB;
     private final String BOT_KEY = "bot";
@@ -34,15 +34,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        chatRV = findViewById(R.id.idRVChats);
+        chatsRV = findViewById(R.id.idRVChats);
         userMsgEdt = findViewById(R.id.idEdtMessage);
         sendMsgFAB = findViewById(R.id.idFABSend);
 
         chatsModalArrayList = new ArrayList<>();
         chatRVAdapter = new ChatRVAdapter(chatsModalArrayList,this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        chatRV.setLayoutManager(manager);
-        chatRV.setAdapter(chatRVAdapter);
+        chatsRV.setLayoutManager(manager);
+        chatsRV.setAdapter(chatRVAdapter);
 
         sendMsgFAB.setOnClickListener(new View.OnClickListener() {
             @Override
