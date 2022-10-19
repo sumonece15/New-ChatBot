@@ -9,10 +9,12 @@ public class MsgModal {
     }
 
     public void setCnt(String cnt) {
+
         this.cnt = cnt;
     }
 
     public MsgModal(String cnt) {
+
         this.cnt = cnt;
     }
 }
