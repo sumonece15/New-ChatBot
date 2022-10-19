@@ -78,10 +78,8 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
     public static class UserViewHolder extends RecyclerView.ViewHolder{
         TextView userTV;
-
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-
             userTV = itemView.findViewById(R.id.idTVUser);
         }
     }
@@ -89,10 +87,8 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
     public static class BotViewHolder extends RecyclerView.ViewHolder{
         TextView botMsgTV;
-
         public BotViewHolder(@NonNull View itemView) {
             super(itemView);
-
             botMsgTV = itemView.findViewById(R.id.idTVBot);
         }
     }
