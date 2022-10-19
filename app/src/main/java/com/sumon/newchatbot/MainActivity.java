@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (userMsgEdt.getText().toString().isEmpty()){
-
                     Toast.makeText(MainActivity.this,"Please Enter Your Message", Toast.LENGTH_SHORT).show();
                     return;
                 }
