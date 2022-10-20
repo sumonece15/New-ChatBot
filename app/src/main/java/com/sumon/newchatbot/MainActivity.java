@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton sendMsgFAB;
     private final String BOT_KEY = "bot";
     private final String USER_KEY = "user";
-    private ArrayList<ChatsModal>chatsModalArrayList;
+    private ArrayList<ChatsModal> chatsModalArrayList;
     private ChatRVAdapter chatRVAdapter;
 
     @Override
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         sendMsgFAB = findViewById(R.id.idFABSend);
 
         chatsModalArrayList = new ArrayList<>();
-        chatRVAdapter = new ChatRVAdapter(chatsModalArrayList,this);
+        chatRVAdapter = new ChatRVAdapter(chatsModalArrayList, this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         chatsRV.setLayoutManager(manager);
         chatsRV.setAdapter(chatRVAdapter);
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (userMsgEdt.getText().toString().isEmpty()){
-                    Toast.makeText(MainActivity.this,"Please Enter Your Message", Toast.LENGTH_SHORT).show();
+                if (userMsgEdt.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please Enter Your Message", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getResponse(String message){
+    private void getResponse(String message) {
 
         chatsModalArrayList.add(new ChatsModal(message, USER_KEY));
         chatRVAdapter.notifyDataSetChanged();
-        String url = "http://api.brainshop.ai/get?bid=169904&key=IUBavtkcBuw9Y25p&uid=[uid]&msg="+message;
+        String url = "http://api.brainshop.ai/get?bid=169904&key=IUBavtkcBuw9Y25p&uid=[uid]&msg=" + message;
         String BASE_URL = "http://api.brainshop.ai/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -76,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<MsgModal>() {
             @Override
             public void onResponse(Call<MsgModal> call, Response<MsgModal> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
 
                     MsgModal modal = response.body();
-                    chatsModalArrayList.add(new ChatsModal(modal.getCnt(),BOT_KEY));
+                    chatsModalArrayList.add(new ChatsModal(modal.getCnt(), BOT_KEY));
                     chatRVAdapter.notifyDataSetChanged();
                 }
             }
