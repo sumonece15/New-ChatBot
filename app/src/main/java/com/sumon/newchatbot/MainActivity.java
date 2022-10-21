@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -89,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
                 chatsModalArrayList.add(new ChatsModal("Please revert your question", BOT_KEY));
                 chatRVAdapter.notifyDataSetChanged();
+
+                Log.d("onFailure",t.getLocalizedMessage());
 
             }
         });
