@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 chatsModalArrayList.add(new ChatsModal("Please revert your question", BOT_KEY));
                 chatRVAdapter.notifyDataSetChanged();
 
-                Log.d("onFailure",t.getLocalizedMessage());
+                Log.d("onFailure", t.getLocalizedMessage());
 
             }
         });
